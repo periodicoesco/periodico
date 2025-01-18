@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize EmailJS
+    emailjs.init("jhVpHTpB8n7q8kZd2");
+
     // Elementos DOM
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
@@ -6,14 +9,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const closeSidebar = document.getElementById('close-sidebar');
-
+    
     // Theme Toggle
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         body.className = savedTheme;
         updateThemeIcon();
     }
-
+    
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         body.classList.toggle('light-mode');
@@ -50,12 +53,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         e.stopPropagation();
     });
 
+    // Manejar el envío del formulario de confesiones
+    const confessionForm = document.getElementById('confession-form');
+    confessionForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const confession = document.getElementById('confession').value;
+        
+        try {
+            await emailjs.send(
+                "service_z4gmzi8",
+                "template_7i1wknu",
+                {
+                    message: confession,
+                }
+            );
+            
+            alert('¡Confesión enviada exitosamente!');
+            confessionForm.reset();
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Hubo un error al enviar la confesión. Por favor, intenta nuevamente.');
+        }
+    });
+
     // Cargar noticias
     try {
         const response = await fetch('noticias.json');
         const data = await response.json();
         const noticias = data.noticias;
-
         noticias.forEach(noticia => {
             const galleryItem = document.createElement('div');
             galleryItem.className = 'gallery-item';
@@ -74,4 +100,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error loading news:', error);
     }
 });
-
