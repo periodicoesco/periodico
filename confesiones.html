@@ -122,22 +122,22 @@
             <p class="confession-intro">¿Tienes algo que confesar? ¡Este es tu espacio seguro! Todas las confesiones son anónimas.</p>
             
             <form id="confession-form" action="https://formsubmit.co/knethunter314@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="https://tudominio.com/gracias.html">
+    <!-- Asunto del correo -->
                 <input type="hidden" name="_subject" value="Nueva Confesión Anónima">
+    <!-- Desactivar captcha -->
                 <input type="hidden" name="_captcha" value="false">
-                
+
+    <!-- Campo para la confesión -->
                 <div class="form-group">
                     <label for="confession">Tu Confesión:</label>
-                    <textarea id="confession" name="message" rows="6" required 
-                        placeholder="Escribe tu confesión aquí..."></textarea>
+                    <textarea id="confession" name="message" rows="6" required placeholder="Escribe tu confesión aquí..."></textarea>
                 </div>
-                
+
+    <!-- Pie del formulario -->
                 <div class="form-footer">
                     <p class="character-count">0/500 caracteres</p>
-                    <button type="submit" class="submit-button">
-                        <input type="email" name="email" required>
-                        <button type="submit">Enviar</button>
-                </div>
+                    <button type="submit" class="submit-button">Enviar</button>
+                    </div>
             </form>
             
             <div class="confession-guidelines">
