@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styleconfesion.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body class="light-mode">
     <header class="animated-header">
@@ -121,7 +122,7 @@
             <h2><i class="fas fa-comment-dots"></i> Comparte tu Confesión</h2>
             <p class="confession-intro">¿Tienes algo que confesar? ¡Este es tu espacio seguro! Todas las confesiones son anónimas.</p>
             
-            <form id="confession-form" onsubmit="sendEmail(event)">
+            <form id="confession-form">
                 <div class="form-group">
                     <label for="confession">Tu Confesión:</label>
                     <textarea id="confession" name="message" rows="6" required placeholder="Escribe tu confesión aquí..."></textarea>
