@@ -55,25 +55,40 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Manejar el envío del formulario de confesiones
     const confessionForm = document.getElementById('confession-form');
+    const submitButton = confessionForm.querySelector('button[type="submit"]');
+
     confessionForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        // Disable button and show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+        
         const confession = document.getElementById('confession').value;
         
+        console.log('Iniciando envío de email...'); // Debug log
+        console.log('Confesión:', confession); // Debug log
+        
         try {
-            await emailjs.send(
+            const response = await emailjs.send(
                 "service_z4gmzi8",
                 "template_7i1wknu",
                 {
                     message: confession,
+                    to_email: "tu_correo@ejemplo.com", // Añade el correo destino si no está en la plantilla
                 }
             );
             
+            console.log('Email enviado exitosamente:', response); // Debug log
             alert('¡Confesión enviada exitosamente!');
             confessionForm.reset();
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error detallado:', error); // Debug log detallado
             alert('Hubo un error al enviar la confesión. Por favor, intenta nuevamente.');
+        } finally {
+            // Re-enable button and restore text
+            submitButton.disabled = false;
+            submitButton.textContent = 'Enviar';
         }
     });
 
