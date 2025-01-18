@@ -37,20 +37,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     menuToggle?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sidebar?.classList.add('active');
+        e.preventDefault(); // Previene comportamiento por defecto
+        e.stopPropagation(); // Evita propagación del evento
+        sidebar?.classList.add('active'); // Abre el menú lateral
     });
 
-    closeSidebar?.addEventListener('click', closeSidebarFunction);
+    closeSidebar?.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeSidebarFunction(); // Cierra el menú lateral
+    });
 
     document.addEventListener('click', (e) => {
-        if (!sidebar?.contains(e.target) && !menuToggle?.contains(e.target)) {
-            closeSidebarFunction();
+        if (sidebar && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+            closeSidebarFunction(); // Cierra el menú si haces clic fuera
         }
     });
 
     sidebar?.addEventListener('click', (e) => {
-        e.stopPropagation();
+        e.stopPropagation(); // Evita el cierre al hacer clic dentro del menú
     });
 
     // Cargar noticias
