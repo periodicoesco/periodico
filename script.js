@@ -83,7 +83,7 @@ function sendEmail(event) {
 
     const form = document.getElementById("confession-form");
 
-    emailjs.sendForm("service_plom6lt", "TU_TEMPLATE_ID", form)
+    emailjs.sendForm("service_plom6lt", "template_rb5xa3j", form)
         .then(
             (response) => {
                 alert("Confesión enviada con éxito!");
