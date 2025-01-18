@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateThemeIcon();
     }
 
-    themeToggle.addEventListener('click', () => {
+    themeToggle?.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         body.classList.toggle('light-mode');
         localStorage.setItem('theme', body.className);
@@ -25,29 +25,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     function updateThemeIcon() {
-        const icon = themeToggle.querySelector('i');
-        icon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+        const icon = themeToggle?.querySelector('i');
+        if (icon) {
+            icon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+        }
     }
 
     // Funcionalidad del menú
     const closeSidebarFunction = () => {
-        sidebar.classList.remove('active');
+        sidebar?.classList.remove('active');
     };
 
-    menuToggle.addEventListener('click', (e) => {
+    menuToggle?.addEventListener('click', (e) => {
         e.stopPropagation();
-        sidebar.classList.add('active');
+        sidebar?.classList.add('active');
     });
 
-    closeSidebar.addEventListener('click', closeSidebarFunction);
+    closeSidebar?.addEventListener('click', closeSidebarFunction);
 
     document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+        if (!sidebar?.contains(e.target) && !menuToggle?.contains(e.target)) {
             closeSidebarFunction();
         }
     });
 
-    sidebar.addEventListener('click', (e) => {
+    sidebar?.addEventListener('click', (e) => {
         e.stopPropagation();
     });
 
@@ -69,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </a>
             `;
-            newsGallery.appendChild(galleryItem);
+            newsGallery?.appendChild(galleryItem);
         });
     } catch (error) {
         console.error('Error loading news:', error);
