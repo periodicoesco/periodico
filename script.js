@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // Inicializa EmailJS
+    emailjs.init("service_plom6lt");
+
     // Elementos DOM
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
@@ -38,14 +41,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     closeSidebar.addEventListener('click', closeSidebarFunction);
 
-    // Cerrar al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
             closeSidebarFunction();
         }
     });
 
-    // Prevenir que los clics dentro del sidebar cierren el menú
     sidebar.addEventListener('click', (e) => {
         e.stopPropagation();
     });
@@ -75,15 +76,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// Inicializa EmailJS
-emailjs.init("service_plom6lt");
-
+// Función para enviar correo
 function sendEmail(event) {
     event.preventDefault(); // Evita recargar la página
 
     const form = document.getElementById("confession-form");
 
-    emailjs.sendForm("service_plom6lt", "template_rb5xa3j", form)
+    emailjs.sendForm("service_plom6lt", "template_7i1wknu", form)
         .then(
             (response) => {
                 alert("Confesión enviada con éxito!");
@@ -95,4 +94,3 @@ function sendEmail(event) {
             }
         );
 }
-
