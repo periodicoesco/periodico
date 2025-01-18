@@ -75,3 +75,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// Inicializa EmailJS
+emailjs.init("service_plom6lt");
+
+function sendEmail(event) {
+    event.preventDefault(); // Evita recargar la página
+
+    const form = document.getElementById("confession-form");
+
+    emailjs.sendForm("service_plom6lt", "TU_TEMPLATE_ID", form)
+        .then(
+            (response) => {
+                alert("Confesión enviada con éxito!");
+                form.reset(); // Limpia el formulario
+            },
+            (error) => {
+                console.error("Error al enviar la confesión:", error);
+                alert("Hubo un problema al enviar tu confesión.");
+            }
+        );
+}
+
