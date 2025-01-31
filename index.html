@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periódico Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body class="light-mode">
+    <!-- Menú lateral -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-sidebar" id="close-sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="sidebar-content">
+            <div class="theme-toggle-container">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Tema</span>
+                </button>
+            </div>
+
+            <a href="/contacto.html" class="sidebar-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contacto</span>
+            </a>
+        </div>
+    </div>
+
+    <header class="animated-header">
+        <nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap fa-2x"></i>
+                <h1>La voz del Adan Santana</h1>
+            </div>
+        </nav>
+    </header>
+
+    <!-- sección para agregar informacion -->
+    <div class="info-banner">
+        <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>Horario: 8:00 AM - 4:00 PM</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>Email: liceoprof.adansantanasierra@gmail.com</span>
+        </div>
+    </div>
+
+    <main class="content-centered">
+        <main class="content-centered">
+            <section id="noticias">
+                <h2><i class="fas fa-newspaper"></i> Noticias Del Centro.</h2>
+                <div class="gallery-grid" id="news-gallery">
+                    <!-- Noticia 1 -->
+                    <article class="gallery-item">
+                        <h3>Lanzamiento Oficial de la Promoción Beaumont</h3>
+                        <a href="./noticias/noticia.html">
+                            <img src="./images/noticia.jpeg" alt="Lanzamiento Oficial de la Promoción Beaumont">
+                            <div class="caption">
+                                <p class="fecha">12 de Diciembre, 2024</p>
+                                <p class="extracto">Celebración del lanzamiento de la Promoción de 6to Grado bajo el nombre "Beaumont", marcando el inicio de una etapa inolvidable...</p>
+                            </div>
+                        </a>
+                    </article>
+        
+                    <article class="gallery-item">
+                        <h3>Visita a UNAD</h3>
+                        <a href="/noticias/noticia1.html">
+                            <img src="./images/noticia2.jpeg" alt="Semana Cultural en el Liceo">
+                            <div class="caption">
+                                <h3>Visita a la universidad</h3>
+                                <p class="fecha">29 de Enero, 2025</p>
+                                <p class="extracto">los chicos de 6to visitaron la Universidad Adventista Dominicana en su sede uvicada en Bonao.</p>
+                            </div>
+                        </a>
+                    </article>
+        
+                    <article class="gallery-item">
+                        <h3>Celebración del Trimestre Patrio en el Liceo Adán Santana Sierra.</h3>
+                        <a href="/noticias/noticia2.html">
+                            <img src="./images/noticia3.jpeg" alt="Trimestre Patrio">
+                            <div class="caption">
+                                <h3>Celebración del Trimestre Patrio en el Liceo Adán Santana Sierra.</h3>
+                                <p class="fecha">Desde 26 de Enero, hasta 30 de Marzo. 2025</p>
+                                <p class="extracto">Con gran entusiasmo, el Liceo Adán Santana Sierra dio inicio a la celebración del Trimestre Patrio, un período dedicado a resaltar nuestra historia, valores y el legado de los héroes que forjaron la independencia de la República Dominicana.</p>
+                
+                            </div>
+                    </article>
+                    <!--
+                    <article class="gallery-item">
+                        <h3>Actividad de la ONU en el Liceo</h3>
+                        <a href="./noticias/noticia.html">
+                            <img src="./images/Titulo4.png" alt="Lanzamiento Oficial de la Promoción Beaumont">
+                            <div class="caption">
+                                <p class="fecha">15 de noviembre 2024</p>
+                                <p class="extracto">El pasado 15 de noviembre de 2024, nuestro liceo llevó a cabo una destacada actividad en representación de la Organización de las Naciones Unidas (ONU).</p>
+                            </div>
+                        </a>
+                    </article>
+                    -->
+            </section>
+        </main>
+        <!-- Agregar esto justo después de cerrar la sección de noticias -->
+            <div class="reportajes-link-container">
+                <a href="reportajes.html" class="reportajes-btn">
+                    <i class="fas fa-video"></i>
+                    Ver Reportajes
+                </a>
+            </div>
+
+        <section id="calendario">
+            <h2><i class="fas fa-calendar"></i> Días Festivos:</h2>
+            <div class="calendario-grid">
+                <div class="evento hover-effect">
+                    <i class="fas fa-star evento-icon"></i>
+                    <h3>Próximo Festivo:</h3>
+                    <p class="fecha">14 de Febrero, 2025</p>
+                    <p>Día de San Valentin</p>
+                </div>
+            </div>
+            <button id="calendar" onclick="location.href='calendario.html'">
+                <i class="fas fa-calendar">Calendario</i>
+                <span></span>
+            </button>
+        </section>
+
+        <section id="anuncios">
+            <h2><i class="fas fa-bullhorn"></i> Anuncios Importantes</h2>
+            <div class="anuncios-grid">
+                <h3 id="unique-heading"></h3>
+            </div>
+        </section>
+    </main>
+
+    <h2 class="social-heading"><i class="fas fa-share"></i>Redes Sociales:</h2>
+    <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=100076554742603&locale=es_LA" class="fa-brands fa-facebook"></a>
+        <a href="twitter://user?screen_name=tu_usuario" class="fa-brands fa-twitter"></a>
+        <a href="vnd.youtube://user/tu_canal_id" class="fa-brands fa-youtube"></a>
+        <a href="instagram://user?username=tu_usuario" class="fa-brands fa-instagram"></a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Liceo Adan Santana Sierra | <i class="fas fa-heart"></i> Educación con Pasión</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportajes - La voz del Adan Santana</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #303f9f;
+            --text-color: #333;
+            --bg-color: #fff;
+            --card-bg: #f5f5f5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #5c6bc0;
+            --secondary-color: #7986cb;
+            --text-color: #fff;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--card-bg);
+            transition: 0.3s;
+            z-index: 1000;
+            padding: 20px;
+            box-shadow: 2px 0 5px var(--shadow-color);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .close-sidebar {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .reportajes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .reportaje-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .reportaje-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .reportaje-content {
+            padding: 1.5rem;
+        }
+
+        .reportaje-content h3 {
+            margin: 0 0 1rem 0;
+            color: var(--text-color);
+        }
+
+        .fecha {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .descripcion {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .reportajes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="sidebar" id="sidebar">
+        <button class="close-sidebar" id="close-sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="sidebar-content">
+            <div class="theme-toggle-container">
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Tema</span>
+                </button>
+            </div>
+            <a href="/index.html" class="sidebar-link">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="/contacto.html" class="sidebar-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contacto</span>
+            </a>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap fa-2x"></i>
+                <h1>Reportajes - La voz del Adan Santana</h1>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2><i class="fas fa-video"></i> Nuestros Reportajes</h2>
+        <div class="reportajes-grid" id="reportajes-container">
+            <!-- Los reportajes se cargarán dinámicamente aquí -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Liceo Adan Santana Sierra | <i class="fas fa-heart"></i> Educación con Pasión</p>
+    </footer>
+
+    <script>
+        // Usando tu JavaScript existente y agregando la funcionalidad específica para reportajes
+        document.addEventListener('DOMContentLoaded', () => {
+            // Reutilizando las funciones de mi JS existente para las paginas principales
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            const closeSidebar = document.getElementById('close-sidebar');
+            const reportajesContainer = document.getElementById('reportajes-container');
+
+            // Theme Toggle
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+                updateThemeIcon();
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                body.classList.toggle('light-mode');
+                localStorage.setItem('theme', body.className);
+                updateThemeIcon();
+            });
+
+            function updateThemeIcon() {
+                const icon = themeToggle.querySelector('i');
+                icon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+            }
+
+            // Sidebar functionality
+            const closeSidebarFunction = () => {
+                sidebar.classList.remove('active');
+            };
+
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sidebar.classList.add('active');
+            });
+
+            closeSidebar.addEventListener('click', closeSidebarFunction);
+
+            document.addEventListener('click', (e) => {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    closeSidebarFunction();
+                }
+            });
+
+            sidebar.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Función para cargar los reportajes
+            async function cargarReportajes() {
+                try {
+                    const response = await fetch('reportajes.json');
+                    const data = await response.json();
+                    
+                    data.reportajes.forEach(reportaje => {
+                        const reportajeElement = document.createElement('article');
+                        reportajeElement.className = 'reportaje-card';
+                        reportajeElement.innerHTML = `
+                            <div class="video-container">
+                                <iframe src="${reportaje.videoUrl}" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="reportaje-content">
+                                <h3>${reportaje.titulo}</h3>
+                                <p class="fecha">${reportaje.fecha}</p>
+                                <p class="descripcion">${reportaje.descripcion}</p>
+                            </div>
+                        `;
+                        reportajesContainer.appendChild(reportajeElement);
+                    });
+                } catch (error) {
+                    console.error('Error loading reports:', error);
+                    reportajesContainer.innerHTML = '<p>Error al cargar los reportajes. Por favor, intente más tarde.</p>';
+                }
+            }
+
+            // Cargar los reportajes al iniciar la página
+            cargarReportajes();
+        });
+    </script>
+</body>
+</html>
