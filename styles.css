@@ -163,14 +163,12 @@ h2 {
     letter-spacing: 2px;
 }
 
-/* Sidebar mejorado */
-/* Estilos mejorados del sidebar */
 .sidebar {
     position: fixed;
     top: 0;
     left: -100%;
     width: 300px;
-    min-height: fit-content; /* Cambiado de height a min-height */
+    min-height: fit-content;
     background-color: var(--bg-dark);
     z-index: 1000;
     transition: all 0.3s ease-in-out;
@@ -195,7 +193,6 @@ h2 {
     padding-top: 10px;
 }
 
-/* Estilos para los botones del menú */
 .sidebar-link {
     display: flex;
     align-items: center;
@@ -209,7 +206,6 @@ h2 {
 }
 
 .sidebar-link:hover {
-    display: flex;
     background: rgba(255, 255, 255, 0.2);
     transform: translateX(5px);
 }
@@ -220,7 +216,6 @@ h2 {
     text-align: center;
 }
 
-/* Estilo para el botón de tema */
 .theme-toggle-container {
     margin-bottom: 10px;
 }
@@ -248,7 +243,6 @@ h2 {
     font-size: 1.2rem;
 }
 
-/* Estilo para el botón de cerrar */
 .close-sidebar {
     background: none;
     border: none;
@@ -270,30 +264,6 @@ h2 {
 .close-sidebar:hover {
     transform: rotate(90deg);
     color: var(--accent-light);
-}
-
-/* Ajustes mejorados para el menú móvil */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        border-radius: 0;
-        padding-top: 60px; /* Espacio para el botón de cerrar */
-    }
-
-    .close-sidebar {
-        position: fixed; /* Cambiado a fixed */
-        right: 20px;
-        top: 20px;
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        z-index: 1001; /* Asegura que esté por encima */
-    }
-
-    .sidebar-content {
-        padding-top: 0;
-    }
 }
 
 .menu-toggle {
@@ -326,7 +296,6 @@ h2 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    text-align: center;
 }
 
 .social-heading {
@@ -337,26 +306,26 @@ h2 {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espacio entre íconos */
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .fa {
-    font-size: 40px; /* Tamaño del ícono */
-    width: 70px; /* Tamaño del contenedor del ícono */
-    height: 70px; /* Altura del contenedor del ícono */
-    line-height: 70px; /* Centra el ícono verticalmente */
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
     text-align: center;
     text-decoration: none;
     margin: 5px;
     color: white;
-    border-radius: 50%; /* Bordes redondeados */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Suaviza efectos */
+    border-radius: 50%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .fa:hover {
     opacity: 0.8;
-    transform: scale(1.1); /* Agranda el ícono al pasar el mouse */
+    transform: scale(1.1);
 }
 
 .fa-facebook {
@@ -372,20 +341,9 @@ h2 {
 }
 
 .fa-instagram {
-    background: #C13584; /* Color actualizado de Instagram */
+    background: #C13584;
 }
 
-@media screen and (max-width: 768px) {
-    .info-banner {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .sidebar {
-        width: 100%;
-    }
-}
-/* Estilos actualizados para las noticias */
 .gallery-item {
     position: relative;
     border-radius: 10px;
@@ -448,7 +406,6 @@ h2 {
     overflow: hidden;
 }
 
-/* Ajustes para modo oscuro */
 body.dark-mode .gallery-item {
     background: var(--bg-dark);
 }
@@ -467,8 +424,65 @@ body.dark-mode .gallery-item .fecha {
     color: #aaa;
 }
 
-/* Responsive adjustments */
+#unique-heading {
+    color: #FF0000;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+/* Estilos actualizados para el botón de reportajes */
+.reportajes-link-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.reportajes-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: auto;
+    min-width: 200px;
+    max-width: 100%;
+    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.reportajes-btn i {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+.reportajes-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Media queries */
 @media screen and (max-width: 768px) {
+    .info-banner {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sidebar {
+        width: 100%;
+    }
+
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -480,45 +494,34 @@ body.dark-mode .gallery-item .fecha {
     .gallery-item img {
         height: 200px;
     }
-}
 
-#unique-heading {
-    color: #FF0000;
-    border-radius: 50%;
-    margin: 5px;
-}
+    .close-sidebar {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        z-index: 1001;
+    }
 
-.reportajes-link-container {
-    text-align: center;
-    margin: 3rem auto;
-    padding: 2rem;
-    max-width: 800px;
-}
+    .sidebar {
+        width: 100%;
+        border-radius: 0;
+        padding-top: 60px;
+    }
 
-.reportajes-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 2rem 4rem;
-    width: 80%;
-    margin: 0 auto;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    font-size: 1.8rem;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.reportajes-btn i {
-    font-size: 2rem;
-}
-
-.reportajes-btn:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    .sidebar-content {
+        padding-top: 0;
+    }
+    
+    .reportajes-link-container {
+        padding: 1rem 0.5rem;
+    }
+    
+    .reportajes-btn {
+        padding: 0.8rem 1.5rem;
+        min-width: 150px;
+    }
 }
