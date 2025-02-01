@@ -12,7 +12,7 @@
             "id": 2,
             "titulo": "Problematica en Santa lucia de camba",
             "fecha": "26 de Enero, 2025",
-            "videoUrl": "/images/reportaje2.mp4",
+            "videoUrl": "/periodico/images/reportaje2.mp4",
             "descripcion": "Un reportaje sobre sobre el mal estado de las calles de Santa Lucia de Camba."
             
         },
@@ -21,14 +21,14 @@
             "id": 3,
             "titulo": "Falta de cupos en las escuelas",
             "fecha": "20 de Enero, 2025",
-            "videoUrl": "/images/reportaje3.mp4",
+            "videoUrl": "/periodico/images/reportaje3.mp4",
             "descripcion": "Falta de cupos en las escuelas y mal estado de las calles."
         },
         {
             "id": 4,
             "titulo": "Final del campeonato de Baseball",
             "fecha": "30 de Enero, 2025",
-            "videoUrl": "/images/reportaje4.mp4",
+            "videoUrl": "/periodico/images/reportaje4.mp4",
             "descripcion": "Entrevistas a estudiantes del liceo Adán Santana Sierra sobre el final del campeonato de Baseball en Rep. Dom."
         }
     ]
